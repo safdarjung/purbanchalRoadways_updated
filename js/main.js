@@ -1,10 +1,18 @@
 // Sticky Navigation
-window.addEventListener('scroll', function() {
+let lastScrollTop = 0;
+let ticking = false;
+const scrollThreshold = 20; // Minimum scroll difference to detect direction
+const showDelay = 200; // Delay before showing navbar on scroll up (ms)
+let lastHideTime = 0;
+
+function onScroll() {
     const navbar = document.querySelector('.navbar');
     const topBar = document.querySelector('.top-bar');
     const expertiseBanner = document.querySelector('.expertise-banner');
+    const currentScroll = window.scrollY;
+    const now = Date.now();
 
-    if (window.scrollY > 100) {
+    if (currentScroll > 100) {
         navbar.classList.add('navbar-sticky');
         if (topBar) {
             topBar.style.display = 'none';
@@ -12,8 +20,21 @@ window.addEventListener('scroll', function() {
         if (expertiseBanner) {
             expertiseBanner.style.display = 'none';
         }
+        if (Math.abs(currentScroll - lastScrollTop) > scrollThreshold) {
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                navbar.classList.add('navbar-hidden');
+                lastHideTime = now;
+            } else {
+                // Scrolling up
+                if (now - lastHideTime > showDelay) {
+                    navbar.classList.remove('navbar-hidden');
+                }
+            }
+        }
     } else {
         navbar.classList.remove('navbar-sticky');
+        navbar.classList.remove('navbar-hidden');
         if (topBar) {
             topBar.style.display = '';
         }
@@ -21,7 +42,41 @@ window.addEventListener('scroll', function() {
             expertiseBanner.style.display = '';
         }
     }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+    ticking = false;
+}
+
+function adjustMainPadding() {
+    const main = document.querySelector('main');
+    const topBar = document.querySelector('.top-bar');
+    const navbar = document.querySelector('.navbar');
+    const expertiseBanner = document.querySelector('.expertise-banner');
+
+    let totalHeight = 0;
+    if (topBar && window.getComputedStyle(topBar).display !== 'none') {
+        totalHeight += topBar.offsetHeight;
+    }
+    if (navbar && window.getComputedStyle(navbar).display !== 'none') {
+        totalHeight += navbar.offsetHeight;
+    }
+    if (expertiseBanner && window.getComputedStyle(expertiseBanner).display !== 'none') {
+        totalHeight += expertiseBanner.offsetHeight;
+    }
+
+    if (main) {
+        main.style.paddingTop = totalHeight + 'px';
+    }
+}
+
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        window.requestAnimationFrame(onScroll);
+        ticking = true;
+    }
 });
+
+window.addEventListener('resize', adjustMainPadding);
+window.addEventListener('load', adjustMainPadding);
 
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {

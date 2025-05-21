@@ -70,6 +70,15 @@ body > *:not(.spline-bg) { position: relative; z-index: 1; }
     width: 100%;
     z-index: 1000;
     animation: slideDown 0.5s;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+main {
+    padding-top: 100px; /* Adjust based on navbar height */
 }
 
 @keyframes slideDown {
@@ -196,6 +205,13 @@ footer h5:after {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    border: none;
 }
 
 .btn:before {
@@ -215,10 +231,83 @@ footer h5:after {
     transform: translateX(0);
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--white);
+/* Navigation Bar */
+.navbar {
+    padding: 0.8rem 0;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+/* Navigation Buttons */
+.navbar-nav .nav-item {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .btn {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+/* Standard Navigation Buttons */
+.navbar-nav .btn-primary {
+    background-color: #4a6baf;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .btn-primary:hover, 
+.navbar-nav .btn-primary:focus {
+    background-color: #3a5a9f;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 107, 175, 0.2);
+}
+
+/* Get Quote Button - Orange */
+.navbar-nav .btn-quote {
+    background-color: #FF8C00;  /* Darker orange */
+    color: white;
+    border: none;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .btn-quote:hover, 
+.navbar-nav .btn-quote:focus {
+    background-color: #E07B00;  /* Slightly darker on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 140, 0, 0.3);
+}
+
+/* Pay Online Button - Green */
+.navbar-nav .btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .btn-success:hover, 
+.navbar-nav .btn-success:focus {
+    background-color: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
 }
 
 .btn-primary:hover {
@@ -410,11 +499,7 @@ footer h5:after {
 .review-section {
     padding: 80px 0;
 }
-.review-content {
 
-
-
-}
 
 /* Navigation Menu Styles (from terms/write_review/privacy) */
 .header {
