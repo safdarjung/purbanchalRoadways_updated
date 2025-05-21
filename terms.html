@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Terms of Service - Purbanchal Roadways</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+    <style>
+        :root {
+            --primary-color: #00bcd4;
+            --secondary-color: #1976d2;
+            --accent-color: #ffb300;
+            --success-color: #43e97b;
+            --danger-color: #ff5252;
+            --neutral-gray: #607d8b;
+            --white: #fff;
+            --dark-bg: #0a101a;
+            --dark-bg-alt: #151c2c;
+            --dark-card: #181f32;
+            --dark-border: #26304a;
+            --dark-text: #f8fafc;
+            --dark-muted: #b0b8c9;
+        }
+        .spline-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .spline-bg spline-viewer {
+            width: 100vw !important;
+            height: 100vh !important;
+            min-height: 100vh;
+            min-width: 100vw;
+            position: absolute;
+            top: 0; left: 0;
+            z-index: 0;
+            filter: brightness(0.7) contrast(1.1) saturate(1.1) blur(0.5px);
+            background: transparent !important;
+        }
+        .spline-bg::after { display: none !important; }
+        body, html { background: var(--dark-bg) !important; color: var(--dark-text) !important; }
+        body > *:not(.spline-bg) { position: relative; z-index: 1; }
+        .card, .table, .form-control, .form-select, .accordion, .alert, .pricing-badge, .stat-item, .expertise-box {
+            background: none !important;
+            color: var(--dark-text) !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .services-section, .about-section, .cta-section, .footer {
+            background: none !important;
+        }
+
+        /* Navigation Menu Styles */
+        .header {
+            background-color: rgba(10, 16, 26, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            margin: 0 0.5rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-menu a:not(.btn):hover {
+            background-color: rgba(0, 188, 212, 0.2);
+            color: var(--accent-color);
+        }
+
+        .nav-menu .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            border: none;
+        }
+
+        .btn-accent:hover {
+            background-color: #ffc107;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 179, 0, 0.3);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: var(--dark-bg);
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #2ecc71;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(10, 16, 26, 0.98);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .nav-menu li {
+                margin: 0.5rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu .btn {
+                margin: 0.5rem auto;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spline-bg">
+        <spline-viewer url="https://prod.spline.design/SJpbHkfE9Hnf62BQ/scene.splinecode"></spline-viewer>
+    </div>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+    <div class="page-links" style="position:fixed;bottom:32px;right:32px;z-index:10;display:flex;flex-direction:column;gap:1rem;">
+        <a href="privacy.html" class="btn btn-outline-primary" style="min-width:180px;"><i class="fas fa-arrow-left"></i> Back: Privacy</a>
+        <a href="faq.html" class="btn btn-accent" style="min-width:180px;">Next: FAQ <i class="fas fa-arrow-right"></i></a>
+        <a href="home.html" class="btn btn-outline-primary" style="min-width:180px;"><i class="fas fa-home"></i> Home</a>
+    </div>
+    <!-- Top Contact Bar (Unified, Modern) -->
+    <div class="top-contact-bar">
+        <div class="top-contact-container">
+            <div class="contact-info">
+                <a href="tel:+917002269499"><i class="fas fa-phone-alt"></i> +91 7002269499</a>
+                <a href="mailto:purbanchal.1997@gmail.com"><i class="fas fa-envelope"></i> purbanchal.1997@gmail.com</a>
+                <a href="https://wa.me/919435055251" target="_blank"><i class="fab fa-whatsapp"></i> +91 9435055251</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <h1 class="logo-text" style="font-size:2.5rem;letter-spacing:-2px;background:linear-gradient(90deg,#00bcd4,#ffb300 80%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-weight:900;">Purbanchal Roadways</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="learn_more.html">Learn More</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="custom_quote.html" class="btn btn-accent" style="margin-left:0.7rem;">Get Quote</a></li>
+                <li><a href="payment.html" class="btn btn-success" style="margin-left:0.7rem;">Pay Online</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Terms of Service Hero Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="mb-4 fw-bold text-primary">Terms of Service</h1>
+                    <p class="lead">Last Updated: March 15, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Service Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-4">Terms of Service</h2>
+                            <p class="text-center mb-4">Last updated: March 15, 2024</p>
+
+                            <div class="mb-5">
+                                <h3>1. Agreement to Terms</h3>
+                                <p>By accessing or using Purbanchal Roadways' services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>2. Services Description</h3>
+                                <p>Purbanchal Roadways provides the following services:</p>
+                                <ul>
+                                    <li>Household Goods Transport</li>
+                                    <li>Car Transport Services</li>
+                                    <li>Door-to-Door Delivery</li>
+                                    <li>Professional Packing Facility</li>
+                                    <li>Insurance Coverage</li>
+                                    <li>Real-time Tracking</li>
+                                    <li>Industrial Goods Transport</li>
+                                    <li>Multimodal Project Logistics</li>
+                                    <li>Over-Dimensional Cargo Transport</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>3. User Responsibilities</h3>
+                                <p>As a user of our services, you agree to:</p>
+                                <ul>
+                                    <li>Provide accurate and complete information</li>
+                                    <li>Maintain the security of your account</li>
+                                    <li>Comply with all applicable laws and regulations</li>
+                                    <li>Pay all fees and charges on time</li>
+                                    <li>Not misuse or abuse our services</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>4. Booking and Payment</h3>
+                                <h4>4.1 Booking Process</h4>
+                                <ul>
+                                    <li>All bookings must be made through our official channels</li>
+                                    <li>Bookings are subject to availability</li>
+                                    <li>We reserve the right to refuse service</li>
+                                    <li>Prices are subject to change without notice</li>
+                                </ul>
+
+                                <h4>4.2 Payment Terms</h4>
+                                <ul>
+                                    <li>Payment must be made in full before service delivery</li>
+                                    <li>We accept various payment methods</li>
+                                    <li>Online bookings receive a 2% discount</li>
+                                    <li>Additional charges may apply for special services</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>5. Service Delivery</h3>
+                                <h4>5.1 Delivery Times</h4>
+                                <ul>
+                                    <li>Estimated delivery times are provided as guidelines</li>
+                                    <li>Actual delivery times may vary due to circumstances</li>
+                                    <li>We will notify you of any significant delays</li>
+                                </ul>
+
+                                <h4>5.2 Delivery Requirements</h4>
+                                <ul>
+                                    <li>Recipient must be available at delivery time</li>
+                                    <li>Valid identification may be required</li>
+                                    <li>Special handling instructions must be provided in advance</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>6. Insurance and Liability</h3>
+                                <h4>6.1 Insurance Coverage</h4>
+                                <ul>
+                                    <li>Basic insurance is included in our services</li>
+                                    <li>Additional coverage can be purchased</li>
+                                    <li>Claims must be filed within 30 days of delivery</li>
+                                </ul>
+
+                                <h4>6.2 Liability Limitations</h4>
+                                <ul>
+                                    <li>We are not liable for delays due to circumstances beyond our control</li>
+                                    <li>Liability is limited to the declared value of goods</li>
+                                    <li>Certain items may be excluded from coverage</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>7. Cancellation and Refunds</h3>
+                                <h4>7.1 Cancellation Policy</h4>
+                                <ul>
+                                    <li>Cancellations must be made 24 hours before pickup</li>
+                                    <li>Cancellation fees may apply</li>
+                                    <li>No-shows will be charged in full</li>
+                                </ul>
+
+                                <h4>7.2 Refund Policy</h4>
+                                <ul>
+                                    <li>Refunds are processed within 7-10 business days</li>
+                                    <li>Refund amount may be subject to cancellation fees</li>
+                                    <li>Service charges are non-refundable</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>8. Prohibited Items</h3>
+                                <p>The following items are prohibited from transportation:</p>
+                                <ul>
+                                    <li>Hazardous materials</li>
+                                    <li>Illegal substances</li>
+                                    <li>Perishable goods (unless specially arranged)</li>
+                                    <li>Items exceeding size/weight limits</li>
+                                    <li>Items requiring special permits</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>9. Intellectual Property</h3>
+                                <p>All content on our website and materials are our property and are protected by intellectual property laws. You may not use our content without permission.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>10. Privacy</h3>
+                                <p>Your use of our services is also governed by our Privacy Policy, which can be found on our website.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>11. Modifications to Terms</h3>
+                                <p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting on our website.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>12. Governing Law</h3>
+                                <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Dibrugarh, Assam.</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <h3>13. Contact Information</h3>
+                                <p>For questions about these terms, please contact us at:</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-envelope me-2"></i>legal@purbanchalroadways.com</li>
+                                    <li><i class="fas fa-phone me-2"></i>+91 1234567890</li>
+                                    <li><i class="fas fa-map-marker-alt me-2"></i>123 Main Street, Dibrugarh, Assam, India</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms & Conditions Section -->
+    <section class="terms-section" style="padding:80px 0;">
+        <div class="container">
+            <div class="terms-content" style="max-width:800px;margin:0 auto;background:linear-gradient(120deg,rgba(10,16,26,0.98) 80%,rgba(0,188,212,0.85) 100%);border-radius:2rem;box-shadow:0 12px 48px 0 rgba(10,16,26,0.85);padding:3.5rem 2.5rem;">
+                <h2 class="section-title" style="text-align:center;">Terms & Conditions</h2>
+                <p class="section-subtitle" style="text-align:center;">Please read our terms carefully before using our services.</p>
+                <ul style="color:var(--white);font-size:1.15rem;font-weight:600;margin-top:2.5rem;line-height:2.1;">
+                    <li>All bookings are subject to availability and confirmation.</li>
+                    <li>Payment must be made in full before dispatch.</li>
+                    <li>We are not liable for delays due to unforeseen circumstances.</li>
+                    <li>Contact us for any clarification regarding our terms.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-links" style="position:fixed;bottom:32px;right:32px;z-index:10;display:flex;flex-direction:column;gap:1rem;">
+        <a href="privacy.html" class="btn btn-outline-primary" style="min-width:180px;"><i class="fas fa-arrow-left"></i> Back: Privacy</a>
+        <a href="faq.html" class="btn btn-accent" style="min-width:180px;">Next: FAQ <i class="fas fa-arrow-right"></i></a>
+        <a href="home.html" class="btn btn-outline-primary" style="min-width:180px;"><i class="fas fa-home"></i> Home</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Purbanchal Roadways</h5>
+                    <p>Fleet owner, Transport Contractor, Packers & Movers</p>
+                    <p>Since 1997</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> G-1, Mannat Villa, Park Street, M.R. Road, Naliapool, Dibrugarh-786001, Assam, India</p>
+                    <p><i class="fas fa-phone me-2"></i> +91 9435055251 / +91 7002269499</p>
+                    <p><i class="fas fa-envelope me-2"></i> e-mail: purbanchal.1997@gmail.com</p>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="learn_more.html">Learn More</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="quote.html">Get Quote</a></li>
+                                <li><a href="payment.html">Pay Online</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="terms.html">Terms of Service</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="careers.html">Careers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Purbanchal Roadways. All Rights Reserved. <br><span style="color: var(--accent-color);">Website designed and developed by Parvez Khan | Email: <a href="mailto:webprewala@gmail.com">webprewala@gmail.com</a> | WhatsApp (messages only): 8112979202 )</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+    </script>
+</body>
+</html>

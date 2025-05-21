@@ -1,0 +1,1 @@
+ ```yaml services: - type: web name: purbanchalroadways runtime: static routes: - source: /.* destination: /index.html staticPublishPath: ./ ```
