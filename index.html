@@ -29,11 +29,30 @@
 
         /* Added 3D text effect for the main heading */
         main .container h1 {
+            font-size: 3.5rem; /* Increased size */
+            letter-spacing: -2px; /* Adjust spacing as needed */
+            background: linear-gradient(90deg, #00bcd4, #ffb300 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Ensure text is transparent to show background */
+            font-weight: 900; /* Adjust weight as needed */
             text-shadow: 
-                1px 1px 2px var(--secondary-color),
-                2px 2px 3px var(--secondary-color),
-                3px 3px 4px var(--secondary-color),
-                4px 4px 5px var(--secondary-color);
+                2px 2px 0px #004080, /* Darker blue shadow for depth */
+                4px 4px 5px rgba(0, 0, 0, 0.3); /* Soft black shadow for lift */
+            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Add transition for smooth animation */
+        }
+
+        main .container h1:hover {
+            transform: scale(1.05); /* Slightly increase size on hover */
+            text-shadow: 
+                3px 3px 0px #004080, /* Slightly larger shadow on hover */
+                6px 6px 8px rgba(0, 0, 0, 0.4); /* More pronounced soft black shadow on hover */
+        }
+
+        /* Make the lead paragraphs below the main heading bold */
+        main .container .row .col-12.text-center.mb-5 p.lead {
+            font-weight: bold;
         }
 
     </style>
@@ -72,7 +91,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="images/Purbanchal.png.jpg" alt="Purbanchal Roadways" height="80">
+                    <img src="images/Purbanchal.png.png" alt="Purbanchal Roadways" height="80">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -191,7 +210,7 @@
                                 <p class="lead">+91 9435055251 / +91 7002269499</p>
                             </div>
                             <div class="mt-4">
-                                <a href="custom_quote.html" class="btn btn-primary me-2">Get Custom Quote</a>
+                                <a href="quote.html" class="btn btn-primary me-2">Get Custom Quote</a>
                                 <a href="payment.html" class="btn btn-success me-2">Pay Online</a>
                                 <a href="contact.html" class="btn btn-outline-primary">Contact Us Today</a>
                             </div>
